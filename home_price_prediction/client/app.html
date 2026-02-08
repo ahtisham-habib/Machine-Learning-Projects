@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>Document</title>
+    <script src="app.js"></script>
+    <style>
+
+        /* Reset */
+* {
+    box-sizing: border-box;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Page background */
+body {
+    background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+    margin: 0;
+    padding: 30px;
+}
+
+/* Form container */
+.form {
+    background: #ffffff;
+    max-width: 420px;
+    margin: 20px auto;
+    padding: 25px 30px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* Headings */
+.form h2 {
+    margin: 15px 0 10px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+}
+
+/* Area input */
+.area {
+    width: 100%;
+    padding: 10px;
+    font-size: 15px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+
+.area:focus {
+    border-color: #4CAF50;
+}
+
+/* Switch field (radio buttons) */
+.switch-field {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+
+/* Hide radio buttons */
+.switch-field input {
+    display: none;
+}
+
+/* Radio labels */
+.switch-field label {
+    background-color: #f0f0f0;
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+/* Selected radio */
+.switch-field input:checked + label {
+    background-color: #4CAF50;
+    color: white;
+    border-color: #4CAF50;
+}
+
+/* Hover effect */
+.switch-field label:hover {
+    background-color: #dcdcdc;
+}
+
+/* Location dropdown */
+.location {
+    width: 100%;
+    padding: 10px;
+    font-size: 15px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+
+.location:focus {
+    border-color: #4CAF50;
+}
+
+/* Submit button */
+.submit {
+    width: 100%;
+    margin-top: 20px;
+    padding: 12px;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.submit:hover {
+    background-color: #43a047;
+}
+
+/* Estimated price box */
+#uiEstimatedPrice {
+    margin-top: 20px;
+    height: auto;
+    min-height: 50px;
+    border-radius: 6px;
+    border: 1px solid #4CAF50;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #e8f5e9;
+}
+
+/* Result text */
+#uiEstimatedPrice h2 {
+    margin: 0;
+    color: #2e7d32;
+    font-size: 18px;
+}
+    </style>
+</head>
+<body>
+    <form class="form">
+        <h2>Area (Square Feet)</h2>
+        <input type="text" class="area" id="uiSqft" name="Squareft" value="1000">
+        <h2>BHK</h2>
+        <div class="switch-field">
+            <input type="radio" id="radio-bhk-1" name="uiBHK" value="1">
+            <label for="radio-bhk-1">1</label>
+            <input type="radio" id="radio-bhk-2" name="uiBHK" value="2">
+            <label for="radio-bhk-2">2</label>
+            <input type="radio" id="radio-bhk-3" name="uiBHK" value="3">
+            <label for="radio-bhk-3">3</label>
+            <input type="radio" id="radio-bhk-4" name="uiBHK" value="4">
+            <label for="radio-bhk-4">4</label>
+            <input type="radio" id="radio-bhk-5" name="uiBHK" value="5">
+            <label for="radio-bhk-5">5</label>
+        </div>
+    </form>
+
+    <form class="form">
+        <h2>Bath</h2>
+        <div class="switch-field">
+            <input type="radio" id="radio-bath-1" name="uiBath" value="1">
+            <label for="radio-bath-1">1</label>
+            <input type="radio" id="radio-bath-2" name="uiBath" value="2">
+            <label for="radio-bath-2">2</label>
+            <input type="radio" id="radio-bath-3" name="uiBath" value="3">
+            <label for="radio-bath-3">3</label>
+            <input type="radio" id="radio-bath-4" name="uiBath" value="4">
+            <label for="radio-bath-4">4</label>
+            <input type="radio" id="radio-bath-5" name="uiBath" value="5">
+            <label for="radio-bath-5">5</label>
+        </div>
+        <h2>Location</h2>
+        <div>
+            <select name="" id="uiLocations" class="location">
+                <option value="" disabled selected="selected">Choose a location</option>
+                <option>Electronic City</option>
+            </select>
+        </div>
+        <button class="submit" onclick="onClickedEstimatePrice()" type="button">Estimate Price</button>
+        <div id="uiEstimatedPrice" class="result"><h2></h2></div>
+    </form>
+</body>
+</html>
